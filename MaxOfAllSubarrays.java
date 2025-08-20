@@ -4,20 +4,18 @@ class MaxOfAllSubarrays {
     public static List<Integer> maxSlidingWindow(int[] nums, int k) {
         List<Integer> ans = new ArrayList<>();
         Deque<Integer> dq = new LinkedList<>();
+        int i = 0;
 
-        for (int i = 0; i < nums.length; i++) {
-            while (!dq.isEmpty() && dq.peekFirst() <= i - k) dq.pollFirst();
-            while (!dq.isEmpty() && nums[dq.peekLast()] <= nums[i]) dq.pollLast();
+        for (int j = 0; j < nums.length; j++) {
+            while (!dq.isEmpty() && nums[dq.peekLast()] <= nums[j]) dq.pollLast();
+            dq.offer(j);
 
-            dq.offerLast(i);
-
-            if (i >= k - 1) ans.add(nums[dq.peekFirst()]);
+            if (j - i + 1 == k) {
+                ans.add(nums[dq.peekFirst()]);
+                if (dq.peekFirst() == i) dq.pollFirst();
+                i++;
+            }
         }
         return ans;
-    }
-
-    public static void main(String[] args) {
-        int[] arr = {1,3,-1,-3,5,3,6,7};
-        System.out.println(maxSlidingWindow(arr, 3));
     }
 }
