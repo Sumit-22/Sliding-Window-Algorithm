@@ -1,5 +1,5 @@
 public class FirstNegativeInWindow {
-    public int firstnegWin(int [] nums,int k){
+    public void firstnegWin(int [] nums,int k){
         List<Integer> ans= new ArrayList<>();
         Queue<Integer> q = new LinkedList<>();
         for(int i=0;i<k;i++){
@@ -22,6 +22,28 @@ public class FirstNegativeInWindow {
         for(int num : ans) {
             System.out.print(num + " ");
         }
+    }
+    
+    
+    public static List<Integer> firstNegative(int[] arr, int k) {
+        List<Integer> ans = new ArrayList<>();
+        Deque<Integer> dq = new LinkedList<>();
+
+        int n = arr.length;
+        int i = 0;
+
+        for (int j = 0; j < n; j++) {
+            if (arr[j] < 0) dq.add(arr[j]);
+
+            if (j - i + 1 == k) {
+                if (!dq.isEmpty()) ans.add(dq.peek());
+                else ans.add(0);
+
+                if (arr[i] < 0) dq.poll();
+                i++;
+            }
+        }
+        return ans;
     }
 }
 

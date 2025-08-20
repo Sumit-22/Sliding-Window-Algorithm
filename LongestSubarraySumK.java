@@ -1,4 +1,4 @@
-class LongestSubarraySumK {
+class LongestSubarraySumK {//only for +ve
     public static int longestSubarray(int[] arr, int k) {
         int i = 0, j = 0, sum = 0, maxLen = 0;
 
