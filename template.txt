@@ -1,0 +1,26 @@
+Sliding Window Template (Aditya Verma Style)
+
+for (int j = 0; j < n; j++) {
+    // calculation
+
+    if (window size < k) {
+        // expand j
+    } else if (window size == k) {
+        // answer calculation
+        // slide window -> remove i, increment i
+    }
+}
+
+
+Variable-size window me:
+
+for (int j = 0; j < n; j++) {
+    // calculation
+
+    while (condition) {
+        // shrink from i
+        i++;
+    }
+
+    // answer calculation
+}
