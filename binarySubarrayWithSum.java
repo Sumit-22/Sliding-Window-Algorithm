@@ -21,3 +21,12 @@ class Solution {
         return count;
     }
 }
+/*
+ * Explanation
+
+Trick: Count subarrays with sum ≤ goal, and subtract those with sum ≤ goal-1.
+
+Sliding window works because array is binary (non-negative).
+
+Each time we shrink window when sum exceeds goal.
+ */
