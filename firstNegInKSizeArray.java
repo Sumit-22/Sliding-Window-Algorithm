@@ -24,3 +24,17 @@ public class FirstNegativeInWindow {
         }
     }
 }
+
+/*
+ * 
+
+    The first for loop fully processes the initial window [0 ... k-1].
+
+    Then we add the first answer for this initial window.
+
+    The second for loop slides the window from k onward, removing the element that goes out and adding the new one.
+
+    Each time, it records the first negative integer or 0 if none.
+
+This way, the initial window is processed completely with the window size k in one go.
+ */
