@@ -38,4 +38,28 @@ For example, if the window size is 3:
         for (int i = start; i < list.size(); i++) sum += list.get(i);
         return sum / Math.min(size, list.size());
     }
+    //O(k) per query. Simple but not optimal.
+}
+/*
+ * 
+ * better (queue + sum variable)
+ * 
+ */
+class MovingAverageBetter {
+    private Queue<Integer> queue;
+    private int size;
+    private double sum;
+
+    public MovingAverageBetter(int size) {
+        this.size = size;
+        queue = new LinkedList<>();
+        sum = 0;
+    }
+
+    public double next(int val) {
+        queue.offer(val);
+        sum += val;
+        if (queue.size() > size) sum -= queue.poll();
+        return sum / queue.size();
+    }
 }
