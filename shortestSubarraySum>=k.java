@@ -31,3 +31,33 @@ class Solution862 {
         return minLen == n + 1 ? -1 : minLen;
     }
 }
+/// so “Simple Sliding Window” Works Only for Non-Negative Arrays
+///  Basic Idea (for positives only)
+ /* 
+We maintain a window [left, right] and a running sum:
+sum += nums[right];
+
+while (sum >= K) {
+    ans = Math.min(ans, right - left + 1);
+    sum -= nums[left++];
+}
+This works because:
+
+✅ When all numbers are non-negative, increasing right always increases sum.
+✅ Moving left forward always decreases sum.
+
+That means the sum changes monotonically as the window expands or shrinks, letting us adjust the window deterministically.
+
+🚫 Why It Fails with Negatives
+
+If nums has negative values, this monotonic behavior breaks.
+
+Let’s see an example:
+nums = [2, -1, 2]
+K = 3
+Try the normal sliding window:
+Step	Window	Sum	Action
+[0]	[2]	2	< K
+[0,1]	[2, -1]	1	< K
+[0,2]	[2, -1, 2]	3	✅ ≥ K (len=3)
+Move left	[1,2]	1	< K ❌*/
