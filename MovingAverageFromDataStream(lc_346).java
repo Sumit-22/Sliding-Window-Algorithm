@@ -63,3 +63,7 @@ class MovingAverageBetter {
         return sum / queue.size();
     }
 }
+/*
+ * Time Complexity: O(1) per query
+Space Complexity: O(k)
+ */
