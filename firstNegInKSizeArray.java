@@ -1,7 +1,8 @@
 public class FirstNegativeInWindow {
-    public void firstnegWin(int [] nums,int k){
+    public void firstnegWin(int [] arr,int k){
         List<Integer> ans= new ArrayList<>();
         Queue<Integer> q = new LinkedList<>();
+        int n = arr.length;
         for(int i=0;i<k;i++){
             if(arr[i]<0) q.add(arr[i]);
         }
