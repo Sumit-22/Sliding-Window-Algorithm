@@ -17,3 +17,25 @@ For example, if the window size is 3:
     After adding the fourth value, the window slides - it drops the first value and keeps only the most recent three values, then calculates their average
 
  */
+
+ /*
+  * brute force : store all values
+  */
+
+  class MovingAverageBrute {
+    private int size;
+    private List<Integer> list;
+
+    public MovingAverageBrute(int size) {
+        this.size = size;
+        this.list = new ArrayList<>();
+    }
+
+    public double next(int val) {
+        list.add(val);
+        int start = Math.max(0, list.size() - size);
+        double sum = 0;
+        for (int i = start; i < list.size(); i++) sum += list.get(i);
+        return sum / Math.min(size, list.size());
+    }
+}
