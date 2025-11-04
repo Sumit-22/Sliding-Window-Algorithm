@@ -1,3 +1,6 @@
+/*
+ * anagram -two words jumbled same like silent and listem are anagrams
+ */
 import java.util.*;
 
 class Solution {
