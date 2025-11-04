@@ -16,7 +16,7 @@ public class FirstNegativeInWindow {
                 q.poll();
             }
             // Add the new element
-            if(arr[i]<0) q.add(arr[j]);
+            if(arr[j]<0) q.add(arr[j]);
              // Add the first negative number or 0 for the current window
             ans.add(q.isEmpty() ? 0 : q.peek());
         }
