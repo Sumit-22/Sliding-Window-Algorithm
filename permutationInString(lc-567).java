@@ -31,7 +31,12 @@ public class solution{
     }
     return false;
 }
-}/*
+}
+/* reason to use :-
+ * can you tell like why count array is not enough so match variable is used
+ */
+/*
+/*
 so, basically count array keeps track of how many of each character we still need to form a permutation
 match:-counts how many characters are still needed to complete a valid permutation window
 when match = 0, we found a permutation
