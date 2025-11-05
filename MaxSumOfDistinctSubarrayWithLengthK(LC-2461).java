@@ -11,7 +11,7 @@ class Solution {
             while(set.contains(nums[right])){
                 set.remove(nums[left]);
                 sum-=nums[left];
-                left++;
+                left++;  //it ensures no duplicate element is present in the window
             }
             set.add(nums[right]);
             sum+=nums[right];
